@@ -6,7 +6,7 @@
 
 
 <p align="center">
-  <img src="https://unab.edu.co/wp-content/uploads/2025/03/Breves-Tienda-UNAB.png" alt="Logo UNAB" width="220" />
+  <img src="https://i.postimg.cc/4xVRhP5t/Cn-P-03102025-115319.png" alt="Logo UNAB" width="220" />
 </p>
 
 <p align="center">
