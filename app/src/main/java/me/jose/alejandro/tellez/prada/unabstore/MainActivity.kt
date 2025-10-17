@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import me.jose.alejandro.tellez.prada.unabstore.ui.theme.NavigationApp
 import me.jose.alejandro.tellez.prada.unabstore.ui.theme.UnabStoreTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,24 +22,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-
-            val navController = rememberNavController()
-            val startDestination = "login"
-
-            NavHost(navController = navController,
-                startDestination = startDestination,
-                modifier = Modifier.fillMaxSize()
-            ) {
-                composable (route = "login"){
-                    LoginScreen()
-                }
-                composable (route = "register"){
-                    RegisterScreen()
-                }
-                composable (route = "home"){
-                    HomeScreen()
-                }
-
+            UnabStoreTheme {
+                NavigationApp()
             }
 
         }
