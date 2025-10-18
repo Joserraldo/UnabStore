@@ -1,21 +1,30 @@
-package me.jose.alejandro.tellez.prada.unabstore.ui.theme
+package me.jose.alejandro.tellez.prada.unabstore
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import me.jose.alejandro.tellez.prada.unabstore.HomeScreen
-import me.jose.alejandro.tellez.prada.unabstore.LoginScreen
-import me.jose.alejandro.tellez.prada.unabstore.RegisterScreen
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 @Composable
 fun NavigationApp() {
     val myNavController = rememberNavController()
-    val myStartDestination: String = "login"
+    var myStartDestination: String = "login"
+
+    val auth = Firebase.auth
+    val currentUser = auth.currentUser
+
+    if (currentUser != null) {
+        myStartDestination = "home"
+    }else{
+        myStartDestination = "login"
+    }
+
 
     NavHost(
         navController = myNavController,
-        startDestination = myStartDestination // Aquí corriges el error tipográfico
+        startDestination = myStartDestination
     ) {
         composable("login") {
             LoginScreen(onClickRegister = {
@@ -35,7 +44,11 @@ fun NavigationApp() {
             })
         }
         composable("home") {
-            HomeScreen()
+            HomeScreen(onClickLogout = {
+                myNavController.navigate("login"){
+                    popUpTo(0)
+                }
+            })
         }
     }
 }
