@@ -67,4 +67,7 @@ dependencies {
     //auth
     implementation(libs.firebase.auth)
 
+    //nuevos iconos
+    implementation("androidx.compose.material:material-icons-extended")
+
 }
